@@ -81,8 +81,7 @@ FlashSale-Redis-Project/
 
 ---
 
-
-⚙️ Installation & Setup
+## ⚙️ Installation & Setup
 Prerequisites
 
 Python 3.x
