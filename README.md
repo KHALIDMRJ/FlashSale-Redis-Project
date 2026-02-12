@@ -1,156 +1,138 @@
-⚡ FlashSale Redis Project
-High-Performance Flash Sale System using Redis & Concurrency Control
+# ⚡ FlashSale Redis Project  
+### High-Performance Flash Sale System using Redis & Concurrency Control  
 
+![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
+![Redis](https://img.shields.io/badge/Redis-InMemory-red.svg)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue.svg)
+![Status](https://img.shields.io/badge/Status-Academic%20Project-success.svg)
+![License](https://img.shields.io/badge/License-Educational-lightgrey.svg)
 
+---
 
+## 🧠 Abstract
 
-
-
-
-
-
-
-🧠 Abstract
-
-The FlashSale Redis Project is a distributed flash sale simulation system designed to evaluate the performance and reliability of Redis-based concurrency control mechanisms under high request loads.
+The **FlashSale Redis Project** is a distributed flash sale simulation system designed to evaluate the performance and reliability of **Redis-based concurrency control mechanisms** under high request loads.  
 
 It models a real-world flash sale environment where thousands of users attempt to purchase limited stock simultaneously.
 
 Redis is used as a central in-memory datastore to:
-
-Guarantee atomic operations
-
-Prevent race conditions
-
-Maintain data consistency
-
-Achieve low-latency responses
+- Guarantee atomic operations  
+- Prevent race conditions  
+- Maintain data consistency  
+- Achieve low-latency responses  
 
 This project integrates concepts from:
+- Distributed systems  
+- Concurrent programming  
+- Performance benchmarking  
+- Software engineering documentation  
 
-Distributed systems
+---
 
-Concurrent programming
+## 🎯 Objectives
 
-Performance benchmarking
+- Design a scalable flash sale service architecture  
+- Implement concurrency-safe stock management using Redis  
+- Simulate multiple concurrent clients  
+- Measure system behavior under heavy load  
+- Analyze performance results  
+- Provide complete academic documentation  
 
-Software engineering documentation
+---
 
-🎯 Objectives
-
-Design a scalable flash sale service architecture
-
-Implement concurrency-safe stock management using Redis
-
-Simulate multiple concurrent clients
-
-Measure system behavior under heavy load
-
-Analyze performance results
-
-Provide complete academic documentation
-
-🏗️ System Architecture
+## 🏗️ System Architecture
 
 The system is composed of three logical layers:
 
-1️⃣ Service Layer
+### 1️⃣ Service Layer
+- Handles product stock management  
+- Implements business logic  
+- Communicates with Redis  
+- Performs atomic stock updates  
+- Manages logging and errors  
 
-Handles product stock management
+### 2️⃣ Simulation Layer
+- Generates concurrent client requests  
+- Stress-tests the service  
+- Records success/failure ratios  
+- Measures execution time  
 
-Implements business logic
+### 3️⃣ Reporting & Analysis Layer
+- Aggregates logs  
+- Produces charts and figures  
+- Documents results  
+- Provides a final technical report  
 
-Communicates with Redis
+Redis guarantees **atomicity and isolation** for shared resources.
 
-Performs atomic stock updates
+---
 
-Manages logging and errors
+## 🛠️ Technologies & Tools
 
-2️⃣ Simulation Layer
+| Category | Technology |
+|----------|------------|
+| Programming Language | Python 3 |
+| Database | Redis (In-Memory) |
+| Containerization | Docker, Docker Compose |
+| Concurrency | Multithreading / multiprocessing |
+| Version Control | Git & GitHub |
+| Documentation | Markdown |
+| Visualization | PNG / PDF |
 
-Generates concurrent client requests
+---
 
-Stress-tests the service
+## 📁 Project Structure
 
-Records success/failure ratios
-
-Measures execution time
-
-3️⃣ Reporting & Analysis Layer
-
-Aggregates logs
-
-Produces charts and figures
-
-Documents results
-
-Provides a final technical report
-
-Redis guarantees atomicity and isolation for shared resources.
-
-🛠️ Technologies & Tools
-Category	Technology
-Programming Language	Python 3
-Database	Redis (In-Memory)
-Containerization	Docker, Docker Compose
-Concurrency	Multithreading / multiprocessing
-Version Control	Git & GitHub
-Documentation	Markdown
-Visualization	PNG / PDF
-📁 Project Structure
 FlashSale-Redis-Project/
 │
-├── 1_Service/                 # Core backend service
-│   ├── app.py                 # Main service entry point
-│   ├── redis_client.py        # Redis connection & atomic operations
-│   └── config.py              # Configuration parameters
+├── 1_Service/ # Core backend service
+│ ├── app.py # Main service entry point
+│ ├── redis_client.py # Redis connection & atomic operations
+│ └── config.py # Configuration parameters
 │
-├── 2_Simulation/              # Client load simulation
-│   ├── simulate_clients.py    # Concurrent client generator
-│   ├── scenario_concurrency.py# Load scenarios
-│   └── results_logs.txt       # Execution logs
+├── 2_Simulation/ # Client load simulation
+│ ├── simulate_clients.py # Concurrent client generator
+│ ├── scenario_concurrency.py# Load scenarios
+│ └── results_logs.txt # Execution logs
 │
-├── 3_Report/                  # Experimental results
-│   ├── FlashSale_Project_Report.pdf
-│   └── figures/               # Charts & architecture visuals
+├── 3_Report/ # Experimental results
+│ ├── FlashSale_Project_Report.pdf
+│ └── figures/ # Charts & architecture visuals
 │
-├── 4_Installation/            # Setup & deployment
-│   ├── docker-compose.yml
-│   ├── requirements.txt
-│   └── README.md
+├── 4_Installation/ # Setup & deployment
+│ ├── docker-compose.yml
+│ ├── requirements.txt
+│ └── README.md
 │
-├── 5_Gantt/                   # Project planning
-│   └── gantt_chart.png
+├── 5_Gantt/ # Project planning
+│ └── gantt_chart.png
 │
-├── 6_Annexes/                 # Supplementary materials
-│   └── jira_board_screenshots/
+├── 6_Annexes/ # Supplementary materials
+│ └── jira_board_screenshots/
 │
-└── README.md                  # Main documentation
+└── README.md # Main documentation
 
-⚙️ Installation & Setup
-🔹 Prerequisites
 
-Python 3.x
+---
 
-Docker & Docker Compose
+## ⚙️ Installation & Setup
 
-Git
+### 🔹 Prerequisites
+- Python 3.x  
+- Docker & Docker Compose  
+- Git  
 
-🔹 Clone the Repository
+### 🔹 Clone the Repository
+```bash
 git clone https://github.com/KHALIDMRJ/FlashSale-Redis-Project.git
 cd FlashSale-Redis-Project
-
 🔹 Install Dependencies
 pip install -r 4_Installation/requirements.txt
-
 🔹 Start Redis with Docker
 docker-compose up -d
-
 ▶️ Execution Workflow
 Step 1: Start the Service
 python 1_Service/app.py
-
-
 Initializes:
 
 Redis connection
@@ -163,20 +145,17 @@ Logging system
 
 Step 2: Run Simulation
 python 2_Simulation/simulate_clients.py
-
-
-The simulation:
+Simulation:
 
 Spawns concurrent clients
 
 Sends purchase requests
 
-Logs success and failure
+Logs success/failure
 
 Measures performance
 
 🔐 Concurrency Control Strategy
-
 Redis atomic operations are used to ensure thread-safe stock management.
 
 Core Algorithm
@@ -187,8 +166,6 @@ if stock >= 0:
 else:
     redis.incr("product_stock")
     return "FAILED"
-
-
 Guarantees:
 
 No overselling
@@ -209,7 +186,6 @@ MULTI/EXEC	Transaction blocks
 PING	Health check
 FLUSHALL	Reset environment
 🧵 Simulation Model
-
 Each client sends one purchase request
 
 Requests run concurrently
@@ -219,7 +195,6 @@ Response times measured
 Results logged in results_logs.txt
 
 Parameters:
-
 Number of clients (N)
 
 Initial stock (S)
@@ -229,7 +204,6 @@ Request rate (R)
 Execution time (T)
 
 📊 Performance Metrics
-
 Metrics analyzed:
 
 Throughput (requests/second)
@@ -245,14 +219,10 @@ Redis latency
 Formula:
 
 Throughput = Total Requests / Execution Time
-
 🧪 Experimental Scenarios
-
 Defined in:
 
 2_Simulation/scenario_concurrency.py
-
-
 Scenarios:
 
 Low concurrency (10–50 clients)
@@ -270,7 +240,6 @@ Consistency
 Performance degradation
 
 🔄 Fault Tolerance Strategy
-
 Redis is the single source of truth
 
 Atomic rollback when stock < 0
@@ -280,7 +249,6 @@ Logging of failed operations
 Graceful error handling
 
 🧩 Design Patterns Used
-
 Layered Architecture
 
 Client–Server Model
@@ -295,7 +263,6 @@ Producer–Consumer (simulation)
 product:{id}:stock → integer
 logs:{timestamp} → string
 client:{id}:status → SUCCESS / FAILED
-
 🔍 Complexity Analysis
 Operation	Complexity
 Redis GET	O(1)
@@ -310,7 +277,6 @@ graph TD
     Simulation --> Service[Flash Sale Service]
     Service --> Redis[(Redis Database)]
     Service --> User
-
 📌 Class Diagram
 Diagramme
 classDiagram
@@ -334,7 +300,6 @@ classDiagram
 
     AppService --> RedisClient
     SimulationClient --> AppService
-
 📌 Sequence Diagram
 Diagramme
 sequenceDiagram
@@ -351,9 +316,7 @@ sequenceDiagram
         Service->>Redis: INCR (rollback)
         Service-->>Client: FAILED
     end
-
 🎓 Learning Outcomes
-
 This project demonstrates:
 
 Redis atomicity and synchronization
@@ -371,12 +334,33 @@ UML modeling
 Professional documentation
 
 👨‍💻 Author
-
 Khalid Morjane
 University Project – Flash Sale System using Redis
 
 GitHub: https://github.com/KHALIDMRJ
 
 📜 License
-
 This project is developed strictly for academic and educational purposes.
+
+
+---
+
+✅ **Instructions to use this safely**:
+
+1. Replace your old README.md with this file  
+2. Save as **UTF-8**  
+3. Commit & push:
+
+```bash
+git add README.md
+git commit -m "Add GitHub-safe formatted README"
+git push
+Open your GitHub repo → it will render perfectly with:
+
+Badges
+
+Code blocks
+
+Tables
+
+Mermaid UML diagrams
