@@ -50,6 +50,7 @@ Redis guarantees **atomicity and isolation**, ensuring no overselling or race co
 
 ## 📁 Project Structure
 
+```text
 FlashSale-Redis-Project/
 ├── 1_Service/                  # Core backend service
 │   ├── app.py                  # Main service entry point
@@ -77,6 +78,7 @@ FlashSale-Redis-Project/
 │   └── jira_board_screenshots/
 │
 └── README.md                   # Main documentation
+
 
 ⚙️ Installation & Setup
 Prerequisites
