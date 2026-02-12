@@ -153,12 +153,19 @@ High throughput
 
 ## 🧠 Redis Commands Used
 Command	Purpose
+
 GET	Retrieve stock
+
 SET	Initialize stock
+
 DECR	Atomic decrement
+
 INCR	Rollback operation
+
 MULTI/EXEC	Transaction blocks
+
 PING	Health check
+
 FLUSHALL	Reset environment
 ## 🧵 Simulation Model
 
