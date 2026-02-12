@@ -267,9 +267,11 @@ Professional documentation
 👨‍💻 Author
 
 Khalid Morjane
+Anas Lahraoui
 University Project – Flash Sale System using Redis
 
 GitHub: https://github.com/KHALIDMRJ
+GitHub: https://github.com/anabkl
 
 📜 License
 
