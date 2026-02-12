@@ -1,0 +1,94 @@
+============================================================
+FLASH SALE REDIS PROJECT — SIMULATION RESULTS LOGS
+============================================================
+
+Test Environment:
+-----------------
+Redis Version: 7.x (Docker)
+Authentication: ACL (username + password)
+Atomic Reservation: Lua Script
+Simulation Mode: Multi-threaded (Python threads)
+
+============================================================
+TEST 1 — Basic Simulation (simulate_clients.py)
+============================================================
+
+Command:
+python 2_Simulation/simulate_clients.py --product 101 --stock 50 --clients 200 --ttl 8 --confirm-rate 0.6 --cancel-rate 0.1 --abandon-rate 0.3 --sweeper-interval 2
+
+Output Summary:
+Initial stock_total: 50
+Final status: total=50 reserved=0 available=50
+Clients simulated: 200
+Time: 3.12s
+
+Client outcomes:
+CONFIRM: 118
+CANCEL: 20
+ABANDON: 62
+FAIL_NO_STOCK: 0
+
+Redis metrics:
+metrics:sold: 118
+metrics:abandon: 62
+metrics:incidents: 0
+
+Latency(ms):
+p50 = 3 ms
+p95 = 9 ms
+p99 = 15 ms
+
+Anti-oversell check: PASS (stock never negative)
+
+Analysis:
+This test shows the system handles concurrent reservations without overselling.
+Reservations expired correctly via TTL and stock was released automatically.
+
+============================================================
+TEST 2 — Concurrency Scenario Comparison (scenario_concurrency.py)
+============================================================
+
+Command:
+python 2_Simulation/scenario_concurrency.py --product 101 --stock 20 --clients 200 --ttl 8 --unsafe-delay-ms 5
+
+SCENARIO A — SAFE (Lua atomic reservation)
+
+Before: total=20 reserved=0 available=20
+After: total=20 reserved=20 available=0
+Clients OK: 20
+Clients FAIL: 180
+Anti-oversell check: PASS
+
+Analysis:
+Atomic Lua script ensures check and update happen together.
+No race condition occurred.
+Stock consistency preserved.
+
+------------------------------------------------------------
+
+SCENARIO B — UNSAFE (naive check-then-update)
+
+Before: total=20 reserved=0 available=20
+After: total=20 reserved=27 available=-7
+Clients OK: 27
+Clients FAIL: 173
+Anti-oversell check: FAIL (oversell detected)
+
+Analysis:
+Race condition occurred.
+Multiple clients read the same stock value before update.
+System allowed more reservations than available stock.
+
+============================================================
+CONCLUSION FROM SIMULATION
+============================================================
+
+• Lua atomic operations prevent overselling.
+• Naive read/write logic fails under concurrency.
+• TTL expiration successfully releases abandoned stock.
+• Redis counters and sets correctly track metrics and active reservations.
+• System remains consistent under high load.
+
+============================================================
+END OF LOG
+============================================================

@@ -1,0 +1,65 @@
+FLASH SALE — Installation (Windows + Docker + Redis + Python)
+
+0) Prérequis
+- Docker Desktop installé et lancé
+- Python 3.10+ installé
+- Le projet FlashSale/ prêt (app.py, redis_client.py, config.py, requirements.txt)
+
+1) Démarrer Redis via Docker Compose
+- Ouvrir PowerShell dans le dossier 4_Installation/
+- Lancer :
+  docker compose up -d
+
+2) Vérifier que Redis tourne
+- Voir les conteneurs :
+  docker ps
+- Vérifier santé :
+  docker inspect --format="{{.State.Health.Status}}" redis-flash
+  (attendu : healthy)
+
+3) Installer les dépendances Python
+- Revenir à la racine du projet FlashSale/
+- Installer :
+  pip install -r requirements.txt
+
+4) Configurer l’authentification Redis (ACL)
+IMPORTANT : Redis ne crée pas automatiquement un user ACL avec docker-compose.
+Nous allons créer un utilisateur "khalid" avec un mot de passe "5002".
+
+- Entrer dans le conteneur :
+  docker exec -it redis-flash redis-cli
+
+- Créer l’utilisateur ACL (exemple) :
+  ACL SETUSER khalid on >5002 allcommands allkeys
+
+- Vérifier :
+  ACL LIST
+  (on doit voir une ligne "user khalid ...")
+
+- Quitter redis-cli :
+  exit
+
+5) Définir les variables d’environnement (PowerShell)
+Dans PowerShell (racine FlashSale/) :
+  $env:REDIS_USERNAME="khalid"
+  $env:REDIS_PASSWORD="5002"
+
+6) Test de santé du service
+Depuis FlashSale/ :
+  python app.py ping
+(attendu : PONG)
+
+7) Arrêter / redémarrer
+- Stop :
+  docker compose down
+- Stop + suppression données (ATTENTION) :
+  docker compose down -v
+
+8) Dépannage rapide
+- PONG OK mais app refuse : vérifier username/password
+- Erreur AUTH required :
+  -> vérifier ACL SETUSER effectué
+  -> vérifier $env:REDIS_USERNAME / $env:REDIS_PASSWORD
+- Redis down :
+  -> docker ps
+  -> docker logs redis-flash
