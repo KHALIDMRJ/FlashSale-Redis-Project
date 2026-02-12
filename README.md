@@ -50,35 +50,34 @@ Redis guarantees **atomicity and isolation**, ensuring no overselling or race co
 
 ## 📁 Project Structure
 
-```text
 FlashSale-Redis-Project/
+├── 1_Service/                  # Core backend service
+│   ├── app.py                  # Main service entry point
+│   ├── redis_client.py         # Redis connection & atomic operations
+│   └── config.py               # Configuration parameters
 │
-├── 1_Service/                 # Core backend service
-│   ├── app.py                 # Main service entry point
-│   ├── redis_client.py        # Redis connection & atomic operations
-│   └── config.py              # Configuration parameters
-│
-├── 2_Simulation/              # Client load simulation
-│   ├── simulate_clients.py    # Concurrent client generator
+├── 2_Simulation/               # Client load simulation
+│   ├── simulate_clients.py     # Concurrent client generator
 │   ├── scenario_concurrency.py # Load scenario definitions
-│   └── results_logs.txt       # Simulation logs
+│   └── results_logs.txt        # Simulation logs
 │
-├── 3_Report/                  # Experimental results
+├── 3_Report/                   # Experimental results
 │   ├── FlashSale_Project_Report.pdf
-│   └── figures/               # Charts, diagrams, and architecture visuals
+│   └── figures/                # Charts, diagrams, architecture visuals
 │
-├── 4_Installation/            # Deployment & setup
+├── 4_Installation/             # Deployment & setup
 │   ├── docker-compose.yml
 │   ├── requirements.txt
 │   └── README.md
 │
-├── 5_Gantt/                   # Project planning
+├── 5_Gantt/                    # Project planning
 │   └── gantt_chart.png
 │
-├── 6_Annexes/                 # Supplementary materials
+├── 6_Annexes/                  # Supplementary materials
 │   └── jira_board_screenshots/
 │
-└── README.md                  # Main documentation
+└── README.md                   # Main documentation
+
 ⚙️ Installation & Setup
 Prerequisites
 
