@@ -79,6 +79,8 @@ FlashSale-Redis-Project/
 │
 └── README.md                   # Main documentation
 
+---
+
 
 ⚙️ Installation & Setup
 Prerequisites
