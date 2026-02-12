@@ -1,9 +1,3 @@
-Perfect 😎🔥 — I’ve rewritten your entire README.md to be GitHub-safe, fully professional, clean, and ready to paste.
-
-Everything is properly separated, the project tree is clean, code blocks, Mermaid diagrams, tables, badges, and headings are all correctly formatted.
-
-Here’s your ready-to-paste README.md:
-
 # ⚡ FlashSale Redis Project
 ### High-Performance Flash Sale System using Redis & Concurrency Control  
 
