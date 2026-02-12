@@ -78,6 +78,7 @@ FlashSale-Redis-Project/
 │   └── jira_board_screenshots/
 │
 └── README.md                   # Main documentation
+```
 
 ⚙️ Installation & Setup
 Prerequisites
