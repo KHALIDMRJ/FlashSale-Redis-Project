@@ -80,7 +80,7 @@ FlashSale-Redis-Project/
 └── README.md                   # Main documentation
 ```
 
-⚙️ Installation & Setup
+## ⚙️ Installation & Setup
 Prerequisites
 
 Python 3.x
@@ -99,7 +99,7 @@ pip install -r 4_Installation/requirements.txt
 Start Redis
 docker-compose up -d
 
-▶️ Execution Workflow
+## ▶️ Execution Workflow
 Step 1 – Start Service
 python 1_Service/app.py
 
@@ -128,7 +128,7 @@ Logs success/failure
 
 Measures performance
 
-🔐 Concurrency Control Strategy
+## 🔐 Concurrency Control Strategy
 
 Redis atomic operations ensure thread-safe stock management:
 
@@ -151,7 +151,7 @@ Lock-free concurrency
 
 High throughput
 
-🧠 Redis Commands Used
+## 🧠 Redis Commands Used
 Command	Purpose
 GET	Retrieve stock
 SET	Initialize stock
@@ -160,7 +160,7 @@ INCR	Rollback operation
 MULTI/EXEC	Transaction blocks
 PING	Health check
 FLUSHALL	Reset environment
-🧵 Simulation Model
+## 🧵 Simulation Model
 
 Each client sends one purchase request
 
@@ -180,7 +180,7 @@ Request rate (R)
 
 Execution time (T)
 
-📊 Performance Metrics
+## 📊 Performance Metrics
 
 Metrics:
 
@@ -198,7 +198,7 @@ Formula:
 
 Throughput = Total Requests / Execution Time
 
-🧩 UML Diagrams
+## 🧩 UML Diagrams
 Use Case Diagram
 Diagramme
 graph TD
@@ -248,7 +248,7 @@ sequenceDiagram
         Service-->>Client: FAILED
     end
 
-🎓 Learning Outcomes
+## 🎓 Learning Outcomes
 
 Redis atomicity & synchronization
 
@@ -264,12 +264,14 @@ UML modeling
 
 Professional documentation
 
-👨‍💻 Author
+## 👨‍💻 Author
 
 Khalid Morjane
+Anas Lahraoui
 University Project – Flash Sale System using Redis
 
 GitHub: https://github.com/KHALIDMRJ
+GitHub: https://github.com/anabkl
 
 📜 License
 
