@@ -275,7 +275,7 @@ Professional documentation
 
 Khalid Morjane
 
-Anas Lahraoui
+Lahraoui Anas
 
 University Project – Flash Sale System using Redis
 
