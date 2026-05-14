@@ -283,6 +283,6 @@ GitHub: https://github.com/KHALIDMRJ
 
 GitHub: https://github.com/anabkl
 
-📜 License
+📜 License  :
 
 This project is developed strictly for academic and educational purposes.
